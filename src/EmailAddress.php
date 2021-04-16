@@ -492,7 +492,7 @@ class EmailAddress extends AbstractValidator
 
         // Split email address up and disallow '..'
         if (strpos($value, '..') !== false
-            || ! preg_match('/^(.+)@([^@]+)$/', $value, $matches)
+            || ! preg_match('/^(?:.*<)?(.+)@([^@]+?)(?:>|$)/', $value, $matches)
         ) {
             return false;
         }
