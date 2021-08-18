@@ -530,7 +530,7 @@ class EmailAddress extends AbstractValidator
             return false;
         }
 
-        if ($this->getOption('strict') && (strlen($this->localPart) > 64) || (strlen($this->hostname) > 255)) {
+        if ($this->getOption('strict') && strlen($this->localPart) + strlen($this->hostname) > 255 ) {
             $length = false;
             $this->error(self::LENGTH_EXCEEDED);
         }
